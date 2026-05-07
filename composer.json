@@ -2,7 +2,21 @@
     "name": "gregwar/captcha",
     "type": "library",
     "description": "Captcha generator",
-    "keywords": ["captcha", "spam", "bot"],
+    "keywords": [
+        "captcha",
+        "spam",
+        "bot",
+        "spam-protection",
+        "spam-prevention",
+        "bot-protection",
+        "human-verification",
+        "visual-captcha",
+        "image-captcha",
+        "gd",
+        "security",
+        "php-captcha",
+        "recaptcha"
+    ],
     "homepage": "https://github.com/Gregwar/Captcha",
     "license": "MIT",
     "authors": [
