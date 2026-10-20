@@ -2,21 +2,11 @@ Captcha
 =======
 
 ![Captchas examples](http://gregwar.com/captchas.png)
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUXRLWHQSWS6L)
 
 Installation
 ============
 
-With composer :
-
-``` json
-{
-    ...
-    "require": {
-        "gregwar/captcha": "1.*"
-    }
-}
-```
+With composer : `composer require gregwar/captcha`
 
 Usage
 =====
@@ -78,7 +68,7 @@ else {
 API
 ===
 
-You can use theses functions :
+You can use these functions :
 
 * **__construct($phrase = null)**, constructs the builder with the given phrase, if the phrase is null, a random one will be generated
 * **getPhrase()**, allow you to get the phrase contents
@@ -86,18 +76,22 @@ You can use theses functions :
 * **isOCRReadable()**, returns `true` if the OCR can be read using the `ocrad` software, you'll need to have shell_exec enabled, imagemagick and ocrad installed
 * **buildAgainstOCR($width = 150, $height = 40, $font = null)**, builds a code until it is not readable by `ocrad`
 * **build($width = 150, $height = 40, $font = null)**, builds a code with the given $width, $height and $font. By default, a random font will be used from the library
-* **save($filename, $quality = 80)**, saves the captcha into a jpeg in the $filename, with the given quality
-* **get($quality = 80)**, returns the jpeg data
-* **output($quality = 80)**, directly outputs the jpeg code to a browser
+* **save($filename, $quality = 80)**, saves the captcha in the $filename, with the given quality
+* **get($quality = 80)**, returns the image data
+* **output($quality = 80)**, directly outputs the image
+* **inline($quality = 80)**, returns the jpeg code directly in the HTML page
 * **setBackgroundColor($r, $g, $b)**, sets the background color to force it (this will disable many effects and is not recommended)
-* **setBackgroundImages(array($imagepath1, $imagePath2))**, Sets custom background images to be used as captcha background. It is recommended to disable image effects when passing custom images for background (ignore_all_effects). A random image is selected from the list passed, the full paths to the image files must be passed.
+* **setBackgroundAlpha($alpha)**, sets the background transparency 0 is fully opaque, 127 is fully transparent
+* **setBackgroundImages([$imagepath1, $imagePath2])**, Sets custom background images to be used as captcha background. It is recommended to disable image effects when passing custom images for background (ignore_all_effects). A random image is selected from the list passed, the full paths to the image files must be passed.
 * **setInterpolation($interpolate)**, enable or disable the interpolation (enabled by default), disabling it will be quicker but the images will look uglier
 * **setIgnoreAllEffects($ignoreAllEffects)**, disable all effects on the captcha image. Recommended to use when passing custom background images for the captcha.
 * **testPhrase($phrase)**, returns true if the given phrase is good
 * **setMaxBehindLines($lines)**, sets the maximum number of lines behind the code
 * **setMaxFrontLines($lines)**, sets the maximum number of lines on the front of the code
+* **setImageType($type)**, sets the image output type to "jpeg", "png" or "gif"
+* **setScatterEffect($bool)**, enable or disable scatter effect (fuzzyness)
 
-If you want to change the number of character, you can call the phrase builder directly using
+If you want to change the number of characters, you can call the phrase builder directly using
 extra parameters:
 
 ```php
@@ -131,14 +125,23 @@ render a captcha and check it after the submission
 Symfony Bundle
 ================
 
-You can have a look at the following repository to enjoy the Symfony 2 bundle packaging this captcha generator :
-https://github.com/Gregwar/CaptchaBundle
+You can have a look at the following repository to enjoy the Symfony 2 bundle packaging this captcha generator:
+
+[https://github.com/Gregwar/CaptchaBundle](https://github.com/Gregwar/CaptchaBundle)
 
 Yii2 Extension
 ===============
 
-You can use the following extension for integrating with Yii2 Framework :
-https://github.com/juliardi/yii2-captcha
+You can use the following extension for integrating with Yii2 Framework:
+
+[https://github.com/juliardi/yii2-captcha](https://github.com/juliardi/yii2-captcha)
+
+Filament Extension
+===============
+
+You can use the following extension for integrating with Laravel Filament:
+
+[https://github.com/marcogermani87/filament-captcha](https://github.com/marcogermani87/filament-captcha)
 
 License
 =======
